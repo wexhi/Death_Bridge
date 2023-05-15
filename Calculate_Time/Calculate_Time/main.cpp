@@ -1,8 +1,7 @@
 #include<iostream>
 #include<iomanip>
 using namespace std;
-#define H 500005
-#define LL long long
+
 #define PI 3.141592653
 #define CAR_R 0.0220
 
@@ -28,7 +27,6 @@ int main() {
 	double n, v = 0;
 	cin >> n;
 	v = 2 * PI * CAR_R * n;
-
 	
 	//º∆À„ ±º‰ 
 	for (int i = 1; i <= 19; i++)t[i] = Len[i] / v;
