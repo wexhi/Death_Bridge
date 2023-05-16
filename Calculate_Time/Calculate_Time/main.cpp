@@ -44,16 +44,16 @@ int main() {
 	//Êä³öÊı¾İ 
 	for (int i = 1; i <= 18; i++)//printf("%.0f ", Lv[i]);
 	{
-		cout<<fixed<<setprecision(3)<<Lv[i]<<" ";
+		cout<<fixed<<setprecision(3)<<Lv[i]<<", ";
 	}
 	cout << endl;
 	for (int i = 1; i <= 18; i++)//printf("%.0f ", Rv[i])
 	{
-		cout << fixed << setprecision(3) << Rv[i] << " ";
+		cout << fixed << setprecision(3) << Rv[i] << ", ";
 	}
 	cout << endl;
 	for (int i = 1; i <= 18; i++)//printf("%.0f ", t[i] * 1000);//ºÁÃë 
 	{
-		cout << fixed << setprecision(3) << t[i] * 1000 << " ";
+		cout << fixed << setprecision(3) << t[i] * 1000 << ", ";
 	}
 }
