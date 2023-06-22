@@ -377,7 +377,7 @@ int main(void)
 	while (t<22)
 	{
 		ANO_DT_Send_F2(Motor1Speed * 100, 3.0 * 100, Motor2Speed * 100, 3.0 * 100);
-		MotorPidSetSpeed(LSpeed[t],5.55);		
+		MotorPidSetSpeed(0,3);		
 		HAL_Delay(time[t]);
 		stop();
 		HAL_Delay(20);
