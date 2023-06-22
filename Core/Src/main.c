@@ -370,22 +370,20 @@ int main(void)
 //	//				  1		2	3	 4	  5		6	7    8	  9		10	11	 12	 13		14	15	16	  17	18	19	20	  21	22  23	24	
 	
 	//						1		2	3	  4	   5	6	  7		8	  9		10		11		12	  13	14		15		16		17	18    	19  20    21 	22  23   24	
-	double LSpeed[22] = { 0.306, 0.612, 1.073, 1.60, 2.129, 2.524, 2.71, 2.715, 2.729, 2.8, 3.039, 3.01, 3.140, 3.351, 3.5, 3.4, 3.35, 3.3, 3.8, 4.0, 4.3, 4.0 };
-	int time[22] = { 104, 107, 112, 121, 130, 141, 152, 164, 175, 186, 196, 206, 215, 222, 229, 234, 238, 241, 250, 300, 200, 350 };
-	
-	int t = 0;
-	while (t<22)
-	{
-		ANO_DT_Send_F2(Motor1Speed * 100, 3.0 * 100, Motor2Speed * 100, 3.0 * 100);
-		MotorPidSetSpeed(LSpeed[t],5.55);		
-		HAL_Delay(time[t]);
-		stop();
-		HAL_Delay(20);
-		t++;
-	}
-	
+//	double LSpeed[22] = { 0.306, 0.612, 1.073, 1.60, 2.129, 2.524, 2.71, 2.715, 2.729, 2.8, 3.039, 3.01, 3.140, 3.351, 3.5, 3.4, 3.35, 3.3, 3.8, 4.0, 4.3, 4.0 };
+//	int time[22] = { 104, 107, 112, 121, 130, 141, 152, 164, 175, 186, 196, 206, 215, 222, 229, 234, 238, 241, 250, 300, 200, 350 };
+//	
+//	int t = 0;
+//	while (t<22)
+//	{
+//		ANO_DT_Send_F2(Motor1Speed * 100, 3.0 * 100, Motor2Speed * 100, 3.0 * 100);
+//		MotorPidSetSpeed(0,3);		
+//		HAL_Delay(time[t]);
+//		stop();
+//		HAL_Delay(20);
+//		t++;
+//	}
 
-	
 //	MotorPidSetSpeed(3, 4);//when Speed is 4 !!!
 //	HAL_Delay(200);
 	stop();
@@ -434,48 +432,46 @@ int main(void)
 
 	  //ANO_DT_Send_F2(wheel1.actual_pos / 1560 * 100, 3.0 * 100, wheel2.actual_pos / 1560 * 100, 3.0 * 100);
 
-//	  ANO_DT_Send_F2(Motor1Speed * 100, 3.0 * 100, Motor2Speed * 100, 3.0 * 100);
-//	  MotorPidSetSpeed(0, 6);
-//	  Motor_Control(0, 10000);
+	  ANO_DT_Send_F2(Motor1Speed * 100, 3.0 * 100, Motor2Speed * 100, 3.0 * 100);
+	  MotorPidSetSpeed(4, 3);
+	  //Motor_Control(0, 10000);
 
-	  
-	  
-//	  if (Usart_WaitReasFinish() == 0)
-//	  {
-//		  cJsonData = cJSON_Parse((const char *)usart1_ReadBuf);
-//		  
-//		  if (cJSON_GetObjectItem(cJsonData, "p") != NULL)
-//		  {
-//			  cJsonValue = cJSON_GetObjectItem(cJsonData, "p");
-//			  p = cJsonValue->valuedouble;
-//			  pidMotor1Speed.Kp = p;
-//		  }
-//		  if (cJSON_GetObjectItem(cJsonData, "i") != NULL)
-//		  {
-//			  cJsonValue = cJSON_GetObjectItem(cJsonData, "i");
-//			  i = cJsonValue->valuedouble;
-//			  pidMotor1Speed.Ki = i;
-//		  }
-//		  if (cJSON_GetObjectItem(cJsonData, "d") != NULL)
-//		  {
-//			  cJsonValue = cJSON_GetObjectItem(cJsonData, "d");
-//			  d = cJsonValue->valuedouble;
-//			  pidMotor1Speed.Kd = d;
-//		  }
-//		  if (cJSON_GetObjectItem(cJsonData, "a") != NULL)
-//		  {
-//			  cJsonValue = cJSON_GetObjectItem(cJsonData, "a");
-//			  a = cJsonValue->valuedouble;
-//			  pidMotor1Speed.target_val = a;
-//		  }
-//		  if (cJsonData != NULL)
-//		  {
-//			  cJSON_Delete(cJsonData);
-//		  }
-//		  memset(usart1_ReadBuf, 0, 255);
-//	  }
-//	  //printf("P:%3f I:%3f D:%3f A:%3f\r\n", p, i, d, a);
-//	  sprintf((char*)str, "P:%3f I:%3f D:%3f A:%3f\r\n", p, i, d, a);
+	  if (Usart_WaitReasFinish() == 0)
+	  {
+		  cJsonData = cJSON_Parse((const char *)usart1_ReadBuf);
+		  
+		  if (cJSON_GetObjectItem(cJsonData, "p") != NULL)
+		  {
+			  cJsonValue = cJSON_GetObjectItem(cJsonData, "p");
+			  p = cJsonValue->valuedouble;
+			  pidMotor1Speed.Kp = p;
+		  }
+		  if (cJSON_GetObjectItem(cJsonData, "i") != NULL)
+		  {
+			  cJsonValue = cJSON_GetObjectItem(cJsonData, "i");
+			  i = cJsonValue->valuedouble;
+			  pidMotor1Speed.Ki = i;
+		  }
+		  if (cJSON_GetObjectItem(cJsonData, "d") != NULL)
+		  {
+			  cJsonValue = cJSON_GetObjectItem(cJsonData, "d");
+			  d = cJsonValue->valuedouble;
+			  pidMotor1Speed.Kd = d;
+		  }
+		  if (cJSON_GetObjectItem(cJsonData, "a") != NULL)
+		  {
+			  cJsonValue = cJSON_GetObjectItem(cJsonData, "a");
+			  a = cJsonValue->valuedouble;
+			  pidMotor1Speed.target_val = a;
+		  }
+		  if (cJsonData != NULL)
+		  {
+			  cJSON_Delete(cJsonData);
+		  }
+		  memset(usart1_ReadBuf, 0, 255);
+	  }
+	  //printf("P:%3f I:%3f D:%3f A:%3f\r\n", p, i, d, a);
+	  sprintf((char*)str, "P:%3f I:%3f D:%3f A:%3f\r\n", p, i, d, a);
 //	  HAL_UART_Transmit(&huart1, str, sizeof(str), 100);
   }
   /* USER CODE END 3 */
